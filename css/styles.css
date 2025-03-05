@@ -24,3 +24,20 @@
     align-items: center;
     justify-content: space-around;
 }
+.box1{
+    width: 130px;
+    height: 20vh;
+}
+.box2{
+    width: 20px;
+    height: 20px;
+}
+.player1{
+    width: 100px;
+    height: 100px;
+}
+
+
+div{
+    border: black 1px solid;
+}

@@ -7,15 +7,23 @@
     <title>RPG</title>
 </head>
 <body>
+    <div class="box1">
+
+    </div>
+    <div class="box2">
+
+    </div>
+    <div class="player1">
+
+    </div>
     <div class="field">
         <div class="hitbox">
             <img id="player" src="bilder/rakete.png" alt="model">
         </div>
         <div class="controlls">
             <button onclick="fight()">Fight</button>
-            <button onclick="rest()">Rest</button>
-            <button onclick="levelUp()">Level Up</button>
-            <button onclick="reset()">Reset</button>
+            <button id="learn_magic" onclick="addMagic()">Magie Lernen</button>
+            <button onclick="showAllStats()">Show Stats</button>
             <div id="message"></div>
         </div>
     </div>
