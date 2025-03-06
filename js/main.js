@@ -4,8 +4,7 @@ const controlls = document.querySelector('.controlls');
 var box2 = document.querySelector('.box2'); // Zwite test box wird nicht benutztz
 
 
-
-function Emeny(){ // wird noch nicht benutzt, kommt später
+function Enemy(){ // wird noch nicht benutzt, kommt später
     this.health = 100;
     this.strength = 5;
     this.defence = 5;
@@ -13,6 +12,7 @@ function Emeny(){ // wird noch nicht benutzt, kommt später
     this.energy = 5;
     this.level = 1;
 }
+
 
 const enemy = new Enemy();
 
@@ -54,8 +54,8 @@ const playerStats = { // Einfaches Objekt mit default werten
 function addMagic() { // Funktion für den Button im index
     if (!playerStats.hasOwnProperty('spells')) { // Wenn das playerStats objekt das Attribut spells nicht besitzt
         playerStats.spells = []; // Das Attribut wird als Liste erstellt
-        alert('Magic unlocked.'); 
-        alert('"Fireball learned.');
+        alert('Magie freigeschaltet.'); 
+        alert('Feuerball freigeschaltet.');
     }
 
     if (!playerStats.spells.includes("Feuerball")) { // Wenn der Zauberspruch Feuerball nicht esistiert
@@ -78,6 +78,7 @@ function addMagic() { // Funktion für den Button im index
     }
 }
 
+
 playerBox.addEventListener('mouseover', (event) =>{ // mouseover event
     playerBox.innerHTML = "Dieser Player hat noch" + playerStats.health + " leben." // In innerHtml um den inhalt zu ändern
     if(playerStats.health > 50){ // Die farbe wenn die lebene über 50 sind
@@ -88,13 +89,15 @@ playerBox.addEventListener('mouseover', (event) =>{ // mouseover event
     playerBox.style.border = "1px solid black";// Der rand
 })
 
+
 playerBox.addEventListener('mouseout', (event) => { // mouseout event
     playerBox.innerHTML = ""; // box wird geleert
     playerBox.style.border = "1px black dotted"; // rand wird geändert
     playerBox.style.backgroundColor = "white"; // hintegrund wir geändert
 })
 
-let show = false; // Variable um zu schauen ob die stats angezeigt werden sollen
+
+let show = false; 
 function showAllStats(){
     if(!show){
         box1.innerHTML = playerStats.allStats();
@@ -104,7 +107,6 @@ function showAllStats(){
         show = false;
     }
 }
-
 
 let showspells = false;
 function showAllSpells(){
@@ -116,6 +118,7 @@ function showAllSpells(){
         showspells = false;
     }
 }
+
 
 function showEnemies(){
     
