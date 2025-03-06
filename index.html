@@ -7,27 +7,25 @@
     <title>RPG</title>
 </head>
 <body>
-    <div class="box1">
-
-    </div>
-    <div class="box2">
-
-    </div>
-    <div class="player1">
-
-    </div>
-    <div class="field">
-        <div class="hitbox">
-            <img id="player" src="bilder/rakete.png" alt="model">
+    <div class="gamedisplay">
+        <div class="enemyBox">
+            
+        </div>
+        <div class="playerBox">
+            <div id="message"></div>
+            <div class="playerBoxInfo">
+                <div class="box1"> </div>
+                <div class="player1"> </div>
+                <div class="box2"> </div>
+            </div>
         </div>
         <div class="controlls">
             <button onclick="fight()">Fight</button>
             <button id="learn_magic" onclick="addMagic()">Magie Lernen</button>
             <button onclick="showAllStats()">Show Stats</button>
-            <button onclick="showAllSpells()">Show All Spells</button>
-            <div id="message"></div>
+            <button onclick="showAllSpells()" id="show_spells">Show Spells</button>
         </div>
     </div>
 </body>
-<script src="js/script.js"></script>
+<script src="js/main.js"></script>
 </html>

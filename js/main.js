@@ -1,18 +1,11 @@
 const playerBox = document.querySelector('.player1'); // Das ist das Div in dem die infos stehen
-
 const box1 = document.querySelector('.box1'); // Test box1
-box1.addEventListener('click', (event) => { // Funktion für die Test box1
-console.log('Box 1 Clicked') }
-);
-
 const controlls = document.querySelector('.controlls');
-
 var box2 = document.querySelector('.box2'); // Zwite test box wird nicht benutztz
 
 
 
-function player(name){ // wird noch nicht benutzt, kommt später
-    this.name = name;
+function Emeny(){ // wird noch nicht benutzt, kommt später
     this.health = 100;
     this.strength = 5;
     this.defence = 5;
@@ -20,6 +13,9 @@ function player(name){ // wird noch nicht benutzt, kommt später
     this.energy = 5;
     this.level = 1;
 }
+
+const enemy = new Enemy();
+
 
 const playerStats = { // Einfaches Objekt mit default werten
     health : 100,
@@ -55,15 +51,30 @@ const playerStats = { // Einfaches Objekt mit default werten
 }
 
 
-function addMagic(){
-    if(!playerStats.hasOwnProperty('spells')){
-        playerStats.spells = [];
-        alert('Magie freigeschaltet.')
+function addMagic() { // Funktion für den Button im index
+    if (!playerStats.hasOwnProperty('spells')) { // Wenn das playerStats objekt das Attribut spells nicht besitzt
+        playerStats.spells = []; // Das Attribut wird als Liste erstellt
+        alert('Magic unlocked.'); 
+        alert('"Fireball learned.');
     }
-    if(!playerStats.spells.includes("Feuer_Ball")){
-        controlls.appendChild(document.createElement('button')).textContent = "Fire Ball"; // Button wird angelegt und dem html hinzugefügt
-        controlls.removeChild(document.querySelector('#learn_magic')); // Button wird gelöscht)
-        playerStats.spells.push("Feuer Ball"); // Zauber wird hinzugefügt
+
+    if (!playerStats.spells.includes("Feuerball")) { // Wenn der Zauberspruch Feuerball nicht esistiert
+        const feuerBallBtn = document.createElement('button'); // Der Zauberspruch Feuerball wird hinzugefügt
+        feuerBallBtn.textContent = "Feuerball"; // Der Textihnalt wird Hinzugefügt
+        feuerBallBtn.id = "feuerball-button";  //  Der Knopft bekommt eine einzigartige id
+
+        feuerBallBtn.addEventListener('click', function() {
+            //  was wenn der button geckilckt wird?
+            console.log("Feuerball benutzt!");
+            // OPTIM: Hier kann noch mehr eingefügt werden
+        });
+
+        controlls.appendChild(feuerBallBtn); // Der button wird in controlls eingefügt
+        const learnMagicBtn = document.querySelector('#learn_magic'); // Es wird der button referenciert 
+        if (learnMagicBtn) { // wenn er existiert
+            controlls.removeChild(learnMagicBtn); //der button wird entfernt
+        }
+        playerStats.spells.push("Feuerball"); // Der button wird in die spells liste im playerstats Attribut eingefügt
     }
 }
 
@@ -94,12 +105,19 @@ function showAllStats(){
     }
 }
 
+
+let showspells = false;
 function showAllSpells(){
-    if(!show){
+    if(!showspells){
         box2.innerHTML = playerStats.allSpells();
-        show = true;
-    }else if(show){
+        showspells = true;
+    }else if(showspells){
         box2.innerHTML = "";
-        show = false;
+        showspells = false;
     }
+}
+
+function showEnemies(){
+    
+    box1.innerHTML = "Es gibt momentan keine Gegner.";
 }
