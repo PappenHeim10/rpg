@@ -42,16 +42,10 @@ body{
 }
 
 .box1{
-    width: 130px;
+    width: 100px;
     height: 20vh;
 }
 .box2{
     width: 100px;
     height: 20vh;
-    width: 130px;
-    height: 20vh;
-}
-.player1{
-    width: 100px;
-    height: 100px;
 }
