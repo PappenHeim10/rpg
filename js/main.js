@@ -159,6 +159,9 @@ function subklassenwahl(){
             x += '<p>' + alleklassen.klassenUndSubs[i].sub[j] + '</p>';
         }
     }
-
     subBox.innerHTML = x;
 }
+
+let waffen = ['Schwert', 'Bogen', 'Dolch', 'Axt'];
+
+messageBox.innerHTML = waffen.toString();
