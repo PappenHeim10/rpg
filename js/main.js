@@ -98,15 +98,16 @@ playerBox.addEventListener('mouseout', (event) => { // mouseout event
 
 
 let show = false; 
-function showAllStats(){
+function showAllStats(){ // This functions toggels the stats called through the mathod
     if(!show){
-        box1.innerHTML = playerStats.allStats();
-        show = true;
+        box1.innerHTML = playerStats.allStats();// the method
+        show = true;//WICHTIG: importand for the toggle
     }else if(show){
         box1.innerHTML = "";
         show = false;
     }
 }
+
 
 let showspells = false;
 function showAllSpells(){
@@ -120,7 +121,44 @@ function showAllSpells(){
 }
 
 
-function showEnemies(){
-    
-    box1.innerHTML = "Es gibt momentan keine Gegner.";
+var klassen = ['Warrior', 'Mage', 'Rough'] // Eine liste mit Klassen
+
+const messageBox = document.querySelector('#message'); // Die Message Box von der Mann die klasse auswählen kann
+
+function klassenwahl(){
+    for(let i = 0; i < klassen.length; i++){ // es wird durch die gesamte liste iteriert
+        const btn = document.createElement('button'); // Der button wird asugewählt
+        btn.style.marginRight = "5px";// style
+        btn.style.marginBottom = "5px";
+        btn.textContent = klassen[i]; // Der Text wird in den Button gegeben
+        btn.id = klassen[i]; // die is der Button ist auch der name der Klasse
+        btn.addEventListener('click', function() { // den Buttons wird ein Eventlisener gegeben
+            console.log(this.id);
+            messageBox.innerHTML = "Deine ausgewählte Klasse ist: " + this.id;
+        });
+        messageBox.appendChild(btn);
+    }
+}
+
+const alleklassen = {
+    klassenUndSubs : [
+        {name: 'Warrior', sub: ['Ritter', 'Duellant', 'Berserker']},
+        {name: 'Mage', sub: ['Elementarlist', 'Heiler', 'Spiritualist']},
+        {name: 'Rough', sub: ['Meuchler', 'Alchemist', 'Scharfschütze']},
+    ]
+}
+
+const subBox = document.querySelector('#sub'); // Die Subbox von der Mann die Subklasse auswählen kann
+
+function subklassenwahl(){
+    let x = "";
+
+    for(i in alleklassen.klassenUndSubs){
+        x += '<h5>' + alleklassen.klassenUndSubs[i].name + '</h5>';
+        for(j in alleklassen.klassenUndSubs[i].sub){
+            x += '<p>' + alleklassen.klassenUndSubs[i].sub[j] + '</p>';
+        }
+    }
+
+    subBox.innerHTML = x;
 }
